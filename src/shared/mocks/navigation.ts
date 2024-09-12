@@ -1,4 +1,4 @@
-import { NavLink } from '../types/CommonTypes'
+import { Language, NavLink } from '../types/CommonTypes'
 
 export const navLinkList: NavLink[] = [
   {
@@ -19,4 +19,8 @@ export const navLinkList: NavLink[] = [
   },
 ]
 
-export const langList: string[] = ['Каз', 'Рус', 'Eng']
+export const langList: Language[] = [
+  { label: 'Каз', code: 'kz' },
+  { label: 'Рус', code: 'ru' },
+  { label: 'Eng', code: 'en' },
+]

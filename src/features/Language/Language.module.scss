@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .wrap {
   display: flex;
   gap: 15px;
@@ -18,4 +20,9 @@
 
 .lang {
 	cursor: pointer;
+}
+
+.active {
+	color: $orange_ffa;
+	font-weight: 700;
 }

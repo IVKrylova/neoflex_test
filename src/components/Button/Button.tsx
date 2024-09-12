@@ -27,11 +27,14 @@ export const Button: FC<ButtonProps> = ({
   counter,
 }) => {
   return (
-    <div className={s.wrap}>
+    <div className={cn(s.wrap, className)}>
       <button
         type={type}
         onClick={onClick}
-        className={cn(className, s.button, { [s.fill]: style === 'fill' })}
+        className={cn(s.button, {
+          [s.fill]: style === 'fill',
+          [s.default]: style === 'default',
+        })}
       >
         {text && <span>{text}</span>}
         {icon && <img className={s.icon} alt={alt} src={icon} />}

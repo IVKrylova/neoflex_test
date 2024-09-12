@@ -1,16 +1,15 @@
-// import { Routes } from 'react-router-dom'
-import { Header } from './components/Header/Header'
-import { Footer } from './components/Footer/Footer'
+import { Route, Routes } from 'react-router-dom'
 
-import './App.css'
+import { HomePage } from './pages/HomePage/HomePage'
+import { Layout } from './features/Layout/Layout'
 
 function App() {
   return (
-    <>
-      <Header />
-      <main className='main'>{/* <Routes></Routes> */}</main>
-      <Footer />
-    </>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<HomePage />} />
+      </Route>
+    </Routes>
   )
 }
 

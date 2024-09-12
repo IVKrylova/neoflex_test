@@ -14,3 +14,15 @@
   width: 23.2px;
   height: 23.2px;
 }
+
+.default {
+  width: max-content;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+
+  &:hover {
+    color: #ffa542;
+    transition: 0.3s;
+  }
+}

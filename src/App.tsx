@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <main>{/* <Routes></Routes> */}</main>
+      <main className='main'>{/* <Routes></Routes> */}</main>
       <Footer />
     </>
   )

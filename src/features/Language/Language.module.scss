@@ -1,0 +1,21 @@
+.wrap {
+  display: flex;
+  gap: 15px;
+	align-items: center;
+}
+
+.icon {
+	display: flex;
+	align-items: center;
+}
+
+.list {
+  display: flex;
+  gap: 15px;
+  font-size: 15px;
+	font-weight: 500;
+}
+
+.lang {
+	cursor: pointer;
+}

@@ -8,16 +8,16 @@ export const socialNetworks: SocialNetwork[] = [
   {
     name: 'VKontakte',
     logo: vk,
-    link: '#',
+    link: 'https://vk.com/',
   },
   {
     name: 'Telegram',
     logo: tg,
-    link: '#',
+    link: 'https://t.me/IVKrylova',
   },
   {
     name: 'Whatsapp',
     logo: whatsapp,
-    link: '#',
+    link: 'https://wa.me/',
   },
 ]

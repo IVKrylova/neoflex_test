@@ -40,7 +40,7 @@ export const Footer: FC = () => {
       <ul className={s.socialNetworks}>
         {socialNetworks.map((el, ind) => (
           <li key={ind}>
-            <a href={el.link}>
+            <a href={el.link} target='_blank'>
               <img alt={el.name} src={el.logo} />
             </a>
           </li>

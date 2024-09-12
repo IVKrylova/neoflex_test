@@ -1,0 +1,16 @@
+@import '../../styles/variables';
+
+.counter {
+  border-radius: 50%;
+  background-color: $orange_ffa;
+  color: $white;
+  box-sizing: border-box;
+  font-size: 15px;
+  line-height: 1.22;
+  font-weight: 500;
+  position: absolute;
+  top: -25%;
+  right: -50%;
+  min-width: 18px;
+  text-align: center;
+}

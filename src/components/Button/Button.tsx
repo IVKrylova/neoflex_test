@@ -11,6 +11,8 @@ interface ButtonProps {
   text?: string
   className?: string
   icon?: string
+  widthIcon?: number
+  heightIcon?: number
   type?: 'button' | 'submit'
   alt?: string
   counter?: number
@@ -25,6 +27,8 @@ export const Button: FC<ButtonProps> = ({
   type = 'button',
   alt,
   counter,
+  widthIcon,
+  heightIcon,
 }) => {
   return (
     <div className={cn(s.wrap, className)}>
@@ -37,7 +41,9 @@ export const Button: FC<ButtonProps> = ({
         })}
       >
         {text && <span>{text}</span>}
-        {icon && <img className={s.icon} alt={alt} src={icon} />}
+        {icon && (
+          <img width={widthIcon} height={heightIcon} alt={alt} src={icon} />
+        )}
       </button>
       {counter && <Counter counter={counter} onClick={onClick} />}
     </div>

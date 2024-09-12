@@ -1,0 +1,13 @@
+@import '../../styles/variables';
+
+.counter {
+  width: 118px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count {
+  font-weight: 600;
+  color: $black;
+}

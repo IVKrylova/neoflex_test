@@ -8,9 +8,9 @@ interface CounterProps {
 }
 
 export const Counter: FC<CounterProps> = ({ counter, onClick }) => {
-  return counter ? (
+  return (
     <div className={s.counter} onClick={onClick}>
       {counter}
     </div>
-  ) : null
+  )
 }

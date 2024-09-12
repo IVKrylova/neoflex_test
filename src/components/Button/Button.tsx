@@ -45,7 +45,7 @@ export const Button: FC<ButtonProps> = ({
           <img width={widthIcon} height={heightIcon} alt={alt} src={icon} />
         )}
       </button>
-      {counter && <Counter counter={counter} onClick={onClick} />}
+      {counter ? <Counter counter={counter} onClick={onClick} /> : null}
     </div>
   )
 }

@@ -17,11 +17,13 @@ export const Header: FC = () => {
 
       <div className={s.actions}>
         <Button
-          onClick={() => {}}
+          onClick={() => {
+            navigate('#')
+          }}
           style='icon'
           alt='button favorites'
           icon={iconFavorites}
-          counter={1}
+          counter={2}
           widthIcon={23.2}
           heightIcon={23.2}
         />
@@ -33,7 +35,7 @@ export const Header: FC = () => {
           style='icon'
           alt='button cart'
           icon={iconCart}
-          counter={1}
+          counter={2}
           widthIcon={23.2}
           heightIcon={23.2}
         />

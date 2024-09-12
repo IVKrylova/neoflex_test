@@ -12,12 +12,22 @@ interface GoodsCounterProps {
 }
 
 export const GoodsCounter: FC<GoodsCounterProps> = ({ count, setCount }) => {
+  const increaseCount = () => {
+    setCount(prev => ++prev)
+  }
+
+  const decreaseCount = () => {
+    if (count !== 1) {
+      setCount(prev => --prev)
+    }
+  }
+
   return (
     <div className={s.counter}>
       <Button
         className={s.btn}
         style='icon'
-        onClick={() => setCount(prev => prev++)}
+        onClick={decreaseCount}
         icon={minusIcon}
         alt='button minus'
         widthIcon={30}
@@ -27,7 +37,7 @@ export const GoodsCounter: FC<GoodsCounterProps> = ({ count, setCount }) => {
       <Button
         className={s.btn}
         style='icon'
-        onClick={() => setCount(prev => (prev === 1 ? 1 : prev--))}
+        onClick={increaseCount}
         icon={plusIcon}
         alt='button plus'
         widthIcon={30}

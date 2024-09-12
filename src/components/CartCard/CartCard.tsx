@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { Button } from '../Button/Button'
 import { GoodsCounter } from '@/features/GoodsCounter/GoodsCounter'
@@ -22,6 +22,11 @@ export const CartCard: FC<CartCardProps> = ({
   sale,
 }) => {
   const [count, setCount] = useState<number>(1)
+  const [sum, setSum] = useState<number>(sale ? sale : price)
+
+  useEffect(() => {
+    setSum(count * (sale ? sale : price))
+  }, [count])
 
   return (
     <div className={s.card}>
@@ -39,13 +44,15 @@ export const CartCard: FC<CartCardProps> = ({
           <img alt={title} src={img} />
         </div>
         <div className={s.description}>
-          <h3 className={s.title}>{title}</h3>
+          <h3 className={s.title}>
+            <a href='#'>{title}</a>
+          </h3>
           <div className={s.price}>{`${sale ? sale : price} ₽`}</div>
         </div>
       </div>
       <div className={s.sum}>
         <GoodsCounter count={count} setCount={setCount} />
-        <div className={s.commonSum}>{`${price} ₽`}</div>
+        <div className={s.commonSum}>{`${sum} ₽`}</div>
       </div>
     </div>
   )

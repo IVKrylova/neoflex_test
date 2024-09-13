@@ -8,6 +8,8 @@ import { formatNumber } from '@/shared/helpers/formatData'
 import { TrashIcon } from '../Icons/TrashIcon'
 
 import s from './CartCard.module.scss'
+import { MoreInfoIcon } from '../Icons/MoreInfoIcon'
+import { ProductModal } from '@/features/ProductModal/ProductModal'
 
 interface CartCardProps {
   img: string
@@ -31,6 +33,11 @@ export const CartCard: FC<CartCardProps> = ({
 
   const [count, setCount] = useState<number>(countInCart)
   const [sum, setSum] = useState<number>(sale ? sale : price)
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
+
+  const closeModal = () => {
+    setIsOpenModal(false)
+  }
 
   const deleteGood = () => {
     const newCart = cart.filter(el => el.id !== id)
@@ -78,6 +85,11 @@ export const CartCard: FC<CartCardProps> = ({
         <div className={s.description}>
           <h3 className={s.title}>
             <a href='#'>{title}</a>
+            <Button
+              style='icon'
+              onClick={() => setIsOpenModal(true)}
+              icon={<MoreInfoIcon width={17} height={17} />}
+            />
           </h3>
           <div
             className={s.price}
@@ -93,6 +105,15 @@ export const CartCard: FC<CartCardProps> = ({
         />
         <div className={s.commonSum}>{`${formatNumber(sum)} ₽`}</div>
       </div>
+
+      <ProductModal
+        isOpen={isOpenModal}
+        onClose={closeModal}
+        img={img}
+        price={price}
+        title={title}
+        sale={sale}
+      />
     </div>
   )
 }

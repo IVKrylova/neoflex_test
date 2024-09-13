@@ -1,10 +1,12 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import { Button } from '../Button/Button'
 import { useAppDispatch, useAppSelector } from '@/store/hook'
 import { updateCart } from '@/store/slices/cartSlice'
 import { formatNumber } from '@/shared/helpers/formatData'
 import { StarIcon } from '../Icons/StarIcon'
+import { MoreInfoIcon } from '../Icons/MoreInfoIcon'
+import { ProductModal } from '@/features/ProductModal/ProductModal'
 
 import s from './CatalogCard.module.scss'
 
@@ -15,7 +17,6 @@ interface CatalogCardProps {
   title: string
   id: number
   sale: number | null
-  countInCart: number
 }
 
 export const CatalogCard: FC<CatalogCardProps> = ({
@@ -28,6 +29,12 @@ export const CatalogCard: FC<CatalogCardProps> = ({
 }) => {
   const cart = useAppSelector(store => store.cart.cart)
   const dispatch = useAppDispatch()
+
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
+
+  const closeModal = () => {
+    setIsOpenModal(false)
+  }
 
   const handleCtaClick = () => {
     if (cart.find(el => el.id === id)) {
@@ -57,6 +64,12 @@ export const CatalogCard: FC<CatalogCardProps> = ({
 
   return (
     <div className={s.card}>
+      <Button
+        className={s.moreBtn}
+        style='icon'
+        onClick={() => setIsOpenModal(true)}
+        icon={<MoreInfoIcon />}
+      />
       <div className={s.img}>
         <img alt={title} src={img} />
       </div>
@@ -83,6 +96,15 @@ export const CatalogCard: FC<CatalogCardProps> = ({
           text='Купить'
         />
       </div>
+
+      <ProductModal
+        isOpen={isOpenModal}
+        onClose={closeModal}
+        img={img}
+        price={price}
+        title={title}
+        sale={sale}
+      />
     </div>
   )
 }

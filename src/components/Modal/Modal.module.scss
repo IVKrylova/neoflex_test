@@ -1,0 +1,50 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.modal {
+  display: grid;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    visibility 0.2s,
+    opacity 0.2s linear;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $black_05;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+.openModal {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    visibility 0.2s,
+    opacity 0.2s linear;
+}
+
+.container {
+  position: relative;
+  display: grid;
+  width: 500px;
+  background-color: #fff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  z-index: 2;
+  cursor: default;
+
+  @include media_670 {
+    width: 282px;
+  }
+}
+
+.btnClose {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}

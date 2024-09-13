@@ -1,0 +1,54 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px 15px 30px 15px;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    object-fit: contain;
+    width: 220px;
+    height: 237px;
+
+    @include media_1180 {
+      width: 160px;
+      height: 180px;
+    }
+  }
+}
+
+.name {
+  grid-area: 'name';
+  color: $black_1c1;
+  font-weight: 600;
+  font-size: 17px;
+  margin: 0;
+
+  @include media_400 {
+    font-size: 15px;
+  }
+}
+
+.price {
+  grid-area: 'price';
+  font-weight: 600;
+  color: $orange_ffa;
+  text-align: right;
+  position: relative;
+
+  .pricWithoutSale {
+    font-size: 13px;
+    color: $orange_ffc;
+    text-decoration: line-through;
+    position: absolute;
+    right: 0;
+  }
+}

@@ -9,16 +9,23 @@ import s from './GoodsCounter.module.scss'
 interface GoodsCounterProps {
   count: number
   setCount: Dispatch<SetStateAction<number>>
+  updateData?: () => void
 }
 
-export const GoodsCounter: FC<GoodsCounterProps> = ({ count, setCount }) => {
+export const GoodsCounter: FC<GoodsCounterProps> = ({
+  count,
+  setCount,
+  updateData,
+}) => {
   const increaseCount = () => {
     setCount(prev => ++prev)
+    if (updateData) updateData()
   }
 
   const decreaseCount = () => {
     if (count !== 1) {
       setCount(prev => --prev)
+      if (updateData) updateData()
     }
   }
 

@@ -37,8 +37,7 @@ export const CartCard: FC<CartCardProps> = ({
     dispatch(updateCart(newCart))
   }
 
-  useEffect(() => {
-    setSum(count * (sale ? sale : price))
+  const updateData = () => {
     const newCart = cart.map(el => {
       const newEl = { ...el }
       if (el.id === id) {
@@ -47,6 +46,10 @@ export const CartCard: FC<CartCardProps> = ({
       return newEl
     })
     dispatch(updateCart(newCart))
+  }
+
+  useEffect(() => {
+    setSum(count * (sale ? sale : price))
   }, [count])
 
   return (
@@ -74,7 +77,11 @@ export const CartCard: FC<CartCardProps> = ({
         </div>
       </div>
       <div className={s.sum}>
-        <GoodsCounter count={count} setCount={setCount} />
+        <GoodsCounter
+          count={count}
+          setCount={setCount}
+          updateData={updateData}
+        />
         <div className={s.commonSum}>{`${formatNumber(sum)} ₽`}</div>
       </div>
     </div>

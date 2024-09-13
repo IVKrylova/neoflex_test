@@ -27,3 +27,7 @@
   font-weight: 600;
   color: $black;
 }
+
+.disabledBtn {
+  pointer-events: none;
+}

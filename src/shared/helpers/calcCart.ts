@@ -10,3 +10,7 @@ export const calcSumCart = (cart: GoodType[]): number => {
     0
   )
 }
+
+export const calcItemSum = (item: GoodType): number => {
+  return item.countInCart * (item.sale ? item.sale : item.price)
+}

@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.goodsList {
+  @include cardWrap;
+}
+
+.item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto repeat(3, 150px);
+
+  span:not(:first-child) {
+    text-align: right;
+  }
+
+  @include media_670 {
+    grid-template-columns: auto 150px;
+
+    span:nth-child(2),
+    span:nth-child(3) {
+      display: none;
+    }
+  }
+}
+
+.good {
+  color: $grey_83;
+}

@@ -1,3 +1,5 @@
+@import './variables';
+
 // media queries
 @mixin media_1180 {
   @media screen and (max-width: 1180px) {
@@ -21,4 +23,15 @@
   @media screen and (max-width: 400px) {
     @content;
   }
+}
+
+// styles
+@mixin cardWrap {
+  background-color: $white;
+  box-shadow: 0px 0px 20px 0px $black_01;
+  padding: 15px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

@@ -7,12 +7,13 @@ import s from './Button.module.scss'
 
 interface ButtonProps {
   style: 'fill' | 'icon' | 'default'
-  onClick: () => void
+  onClick?: () => void
   text?: string
   className?: string
   icon?: ReactNode
   type?: 'button' | 'submit'
   counter?: number
+  disabled?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -23,10 +24,12 @@ export const Button: FC<ButtonProps> = ({
   icon,
   type = 'button',
   counter,
+  disabled
 }) => {
   return (
     <div className={cn(s.wrap, className)}>
       <button
+        disabled={disabled}
         type={type}
         onClick={onClick}
         className={cn(s.button, {

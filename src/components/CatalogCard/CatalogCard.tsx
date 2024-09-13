@@ -1,8 +1,11 @@
 import { FC } from 'react'
 
+import { Button } from '../Button/Button'
+import { useAppDispatch, useAppSelector } from '@/store/hook'
+import { updateCart } from '@/store/slices/cartSlice'
+
 import starIcon from '@/assets/icons/star.svg'
 import s from './CatalogCard.module.scss'
-import { Button } from '../Button/Button'
 
 interface CatalogCardProps {
   img: string
@@ -11,6 +14,7 @@ interface CatalogCardProps {
   title: string
   id: number
   sale: number | null
+  countInCart: number
 }
 
 export const CatalogCard: FC<CatalogCardProps> = ({
@@ -21,6 +25,35 @@ export const CatalogCard: FC<CatalogCardProps> = ({
   id,
   sale,
 }) => {
+  const cart = useAppSelector(store => store.cart.cart)
+  const dispatch = useAppDispatch()
+
+  const handleCtaClick = () => {
+    if (cart.find(el => el.id === id)) {
+      const newCart = cart.map(el => {
+        const newEl = { ...el }
+        if (el.id === id) {
+          newEl.countInCart += 1
+        }
+        return newEl
+      })
+      dispatch(updateCart(newCart))
+    } else {
+      const newCart = [...cart].concat([
+        {
+          img,
+          price,
+          rate,
+          title,
+          id,
+          sale,
+          countInCart: 1,
+        },
+      ])
+      dispatch(updateCart(newCart))
+    }
+  }
+
   return (
     <div className={s.card}>
       <div className={s.img}>
@@ -41,7 +74,7 @@ export const CatalogCard: FC<CatalogCardProps> = ({
         <Button
           className={s.ctaBtn}
           style='default'
-          onClick={() => console.log(id)}
+          onClick={handleCtaClick}
           text='Купить'
         />
       </div>

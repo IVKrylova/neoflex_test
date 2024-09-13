@@ -2,14 +2,17 @@ import { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { Button } from '../Button/Button'
+import { Logo } from '../Logo/Logo'
+import { useAppSelector } from '@/store/hook'
+import { calcCountCart } from '@/shared/helpers/calcCart'
+
+import s from './Header.module.scss'
 import iconFavorites from '@/assets/icons/favorites.svg'
 import iconCart from '@/assets/icons/cart.svg'
 
-import s from './Header.module.scss'
-import { Logo } from '../Logo/Logo'
-
 export const Header: FC = () => {
   const navigate = useNavigate()
+  const cart = useAppSelector(store => store.cart.cart)
 
   return (
     <header className={s.header}>
@@ -35,7 +38,7 @@ export const Header: FC = () => {
           style='icon'
           alt='button cart'
           icon={iconCart}
-          counter={2}
+          counter={calcCountCart(cart)}
           widthIcon={23.2}
           heightIcon={23.2}
         />

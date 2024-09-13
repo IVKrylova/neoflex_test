@@ -2,6 +2,8 @@ import { FC, useEffect, useState } from 'react'
 
 import { Button } from '../Button/Button'
 import { GoodsCounter } from '@/features/GoodsCounter/GoodsCounter'
+import { useAppDispatch, useAppSelector } from '@/store/hook'
+import { updateCart } from '@/store/slices/cartSlice'
 
 import trashIcon from '@/assets/icons/trash.svg'
 import s from './CartCard.module.scss'
@@ -12,6 +14,7 @@ interface CartCardProps {
   title: string
   id: number
   sale: number | null
+  countInCart: number
 }
 
 export const CartCard: FC<CartCardProps> = ({
@@ -20,12 +23,24 @@ export const CartCard: FC<CartCardProps> = ({
   title,
   id,
   sale,
+  countInCart,
 }) => {
-  const [count, setCount] = useState<number>(1)
+  const dispatch = useAppDispatch()
+  const cart = useAppSelector(store => store.cart.cart)
+
+  const [count, setCount] = useState<number>(countInCart)
   const [sum, setSum] = useState<number>(sale ? sale : price)
 
   useEffect(() => {
     setSum(count * (sale ? sale : price))
+    const newCart = cart.map(el => {
+      const newEl = { ...el }
+      if (el.id === id) {
+        newEl.countInCart += 1
+      }
+      return newEl
+    })
+    dispatch(updateCart(newCart))
   }, [count])
 
   return (

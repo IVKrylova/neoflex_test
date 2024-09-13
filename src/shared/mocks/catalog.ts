@@ -15,6 +15,7 @@ export const headphones: GoodType[] = [
     rate: 4.7,
     title: 'Apple BYZ S852I',
     id: 0,
+    countInCart: 0,
   },
 	{
     img: headphones2,
@@ -23,6 +24,7 @@ export const headphones: GoodType[] = [
     rate: 4.5,
     title: 'Apple EarPods',
     id: 9,
+    countInCart: 0,
   },
 	{
     img: headphones3,
@@ -31,6 +33,7 @@ export const headphones: GoodType[] = [
     rate: 4.5,
     title: 'Apple EarPods',
     id: 1,
+    countInCart: 0,
   },
 	{
     img: headphones1,
@@ -39,6 +42,7 @@ export const headphones: GoodType[] = [
     rate: 4.7,
     title: 'Apple BYZ S852I',
     id: 2,
+    countInCart: 0,
   },
 	{
     img: headphones2,
@@ -47,6 +51,7 @@ export const headphones: GoodType[] = [
     rate: 4.5,
     title: 'Apple EarPods',
     id: 3,
+    countInCart: 0,
   },
 	{
     img: headphones3,
@@ -55,6 +60,7 @@ export const headphones: GoodType[] = [
     rate: 4.5,
     title: 'Apple EarPods',
     id: 4,
+    countInCart: 0,
   },
 ]
 
@@ -66,6 +72,7 @@ export const wirelessHearphones: GoodType[] = [
     rate: 4.7,
     title: 'Apple AirPods',
     id: 5,
+    countInCart: 0,
   },
 	{
     img: wirelessHearphones2,
@@ -74,6 +81,7 @@ export const wirelessHearphones: GoodType[] = [
     rate: 4.7,
     title: 'GERLAX GH-04',
     id: 6,
+    countInCart: 0,
   },
 	{
     img: wirelessHearphones3,
@@ -82,6 +90,7 @@ export const wirelessHearphones: GoodType[] = [
     rate: 4.7,
     title: 'BOROFONE BO4',
     id: 7,
+    countInCart: 0,
   },
 	
 ]

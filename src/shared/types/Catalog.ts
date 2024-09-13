@@ -5,4 +5,5 @@ export interface GoodType {
   title: string
   id: number
   sale: number | null
+  countInCart: number
 }

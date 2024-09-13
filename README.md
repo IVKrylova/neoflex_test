@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# Neoflex Invite Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React, Redux Toolkit, TypeScript, Vite, SASS, React Hook Form
 
-Currently, two official plugins are available:
+## Демо
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Функционал
+- Приложение состоит из трех страниц интернет-магазина аудио аксессуаров (главная, корзина, форма заказа). Реализован удобный и масштабируемый роутинг
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Все элементы ссылок, иконок отзываются при наведении на них
 
-- Configure the top-level `parserOptions` property like this:
+- Реализован переход с корзины обратно на главную страницу через logo
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- При нажатии на «Купить» в карточке на главной странице счетчик товаров рядом с
+иконкой корзины увеличивается
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- При изменении количества товаров в корзине сумма и количество товаров пересчитываются
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Рендеринг карточек товаров реализован из моковых данных, хранящихся в вивде массива объектов
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Для хранения информации о корзине используется Redux Toolkit
+
+- Реализован адаптив на все устройства
+
+- Реализована возможность удалить карточку товара из корзины товаров
+
+- Реализован переход к оформлению заказа на отдельную страницу с формой. Форма обрабатывается с помощью React Hook Form. Добавлены сообщения об ошибках для обязательных полей формы
+
+- Реализовано модальное окно с подробной информацией о товаре. Модальное окно закрывается по кнопке "закрыть", по клику вне окна и по нажатию на клавишу Esc
+

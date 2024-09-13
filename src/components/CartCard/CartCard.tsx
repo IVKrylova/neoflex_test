@@ -32,6 +32,11 @@ export const CartCard: FC<CartCardProps> = ({
   const [count, setCount] = useState<number>(countInCart)
   const [sum, setSum] = useState<number>(sale ? sale : price)
 
+  const deleteGood = () => {
+    const newCart = cart.filter(el => el.id !== id)
+    dispatch(updateCart(newCart))
+  }
+
   useEffect(() => {
     setSum(count * (sale ? sale : price))
     const newCart = cart.map(el => {
@@ -49,7 +54,7 @@ export const CartCard: FC<CartCardProps> = ({
       <Button
         className={s.deleteBtn}
         style='icon'
-        onClick={() => console.log(id)}
+        onClick={deleteGood}
         icon={trashIcon}
         alt='delete icon'
         widthIcon={20}

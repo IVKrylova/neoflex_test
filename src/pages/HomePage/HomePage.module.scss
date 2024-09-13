@@ -1,3 +1,6 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .wrap {
   display: flex;
   flex-direction: column;
@@ -6,8 +9,22 @@
 }
 
 .list {
-	padding-top: 20px;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 30px;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @include media_1180 {
+    width: 100%;
+    padding: 20px 20px 0 20px;
+  }
+
+  @include media_940 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media_670 {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }

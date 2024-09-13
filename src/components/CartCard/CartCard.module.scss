@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .card {
   background-color: $white;
@@ -9,6 +10,10 @@
   flex-direction: column;
   position: relative;
   width: 100%;
+
+  @include media_400 {
+    max-width: 300px;
+  }
 }
 
 .deleteBtn {
@@ -21,6 +26,11 @@
   display: flex;
   gap: 24px;
   align-items: center;
+
+  @include media_670 {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .img {
@@ -60,6 +70,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 19px 0 0 14px;
+
+  @include media_670 {
+    padding-left: 0;
+  }
 }
 
 .commonSum {

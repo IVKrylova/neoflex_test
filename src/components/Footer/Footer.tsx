@@ -41,7 +41,9 @@ export const Footer: FC = () => {
               ))}
             </ul>
           </nav>
-          <Language />
+          <div className={s.langWrap}>
+            <Language />
+          </div>
         </div>
       </div>
       <ul className={s.socialNetworks}>

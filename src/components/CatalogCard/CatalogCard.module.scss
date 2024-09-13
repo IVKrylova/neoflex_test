@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .card {
   background-color: $white;
@@ -9,17 +10,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include media_1180 {
+    min-height: 350px;
+  }
+
+  @include media_670 {
+    width: 350px;
+  }
+
+  @include media_400 {
+    width: 280px;
+  }
 }
 
 .img {
-  width: 220px;
-  height: 237px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   img {
     object-fit: contain;
+    width: 220px;
+    height: 237px;
+
+    @include media_1180 {
+      width: 160px;
+      height: 180px;
+    }
   }
 }
 
@@ -39,6 +57,10 @@
   font-weight: 600;
   font-size: 17px;
   margin: 0;
+
+  @include media_400 {
+    font-size: 15px;
+  }
 }
 
 .price {

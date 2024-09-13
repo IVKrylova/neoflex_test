@@ -1,7 +1,20 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .wrap {
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
+  gap: 30px;
+
+  @include media_1180 {
+    width: 100%;
+  }
+
+  @include media_940 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 .list {
@@ -11,4 +24,41 @@
   gap: 30px;
   width: 100%;
   max-width: 633px;
+
+  @include media_1180 {
+    padding: 13px 20px 30px 20px;
+  }
+}
+
+.orderBlockWrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  @include media_1180 {
+    padding-right: 20px;
+  }
+
+  @include media_940 {
+    grid-row: 2 / 3;
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+}
+
+.cartListSection {
+  h2 {
+    @include media_940 {
+      display: none;
+    }
+  }
+}
+
+.title {
+  display: none;
+
+  @include media_940 {
+    grid-row: 1 / 2;
+    display: block;
+  }
 }

@@ -37,11 +37,22 @@ export const CartCard: FC<CartCardProps> = ({
     dispatch(updateCart(newCart))
   }
 
-  const updateData = () => {
+  const updateDataByIncreasing = () => {
     const newCart = cart.map(el => {
       const newEl = { ...el }
       if (el.id === id) {
         newEl.countInCart += 1
+      }
+      return newEl
+    })
+    dispatch(updateCart(newCart))
+  }
+
+  const updateDataByDecreasing = () => {
+    const newCart = cart.map(el => {
+      const newEl = { ...el }
+      if (el.id === id) {
+        newEl.countInCart -= 1
       }
       return newEl
     })
@@ -77,7 +88,8 @@ export const CartCard: FC<CartCardProps> = ({
         <GoodsCounter
           count={count}
           setCount={setCount}
-          updateData={updateData}
+          updateDataByIncreasing={updateDataByIncreasing}
+          updateDataByDecreasing={updateDataByDecreasing}
         />
         <div className={s.commonSum}>{`${formatNumber(sum)} ₽`}</div>
       </div>

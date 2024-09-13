@@ -9,3 +9,9 @@ export type Language = {
   label: string
   code: string
 }
+
+export interface IconProps {
+  width?: number
+  height?: number
+  className?: string
+}

@@ -7,7 +7,7 @@ export const navLinkList: NavLink[] = [
   },
   {
     name: 'Корзина',
-    link: '#',
+    link: '/cart',
   },
   {
     name: 'Контакты',

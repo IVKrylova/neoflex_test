@@ -29,52 +29,47 @@
     'name price'
     'rate ctaBtn';
   padding-top: 54px;
-	width: 100%;
-	gap: 25px;
+  width: 100%;
+  gap: 25px;
 }
 
 .name {
   grid-area: 'name';
-	color: $black_1c1;
-	font-weight: 600;
-	font-size: 17px;
-	margin: 0;
+  color: $black_1c1;
+  font-weight: 600;
+  font-size: 17px;
+  margin: 0;
 }
 
 .price {
   grid-area: 'price';
-	font-weight: 600;
-	color: $orange_ffa;
-	text-align: right;
-	position: relative;
+  font-weight: 600;
+  color: $orange_ffa;
+  text-align: right;
+  position: relative;
 
-	.pricWithoutSale {
-		font-size: 13px;
-		color: $orange_ffc;
-		text-decoration: line-through;
-		position: absolute;
-		right: 0;
-	}
+  .pricWithoutSale {
+    font-size: 13px;
+    color: $orange_ffc;
+    text-decoration: line-through;
+    position: absolute;
+    right: 0;
+  }
 }
 
 .rate {
   grid-area: 'rate';
-	display: flex;
-	gap: 10px;
-	align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 
-	.iconRate {
-		width: 23px;
-		height: 23px;
-	}
-
-	span {
-		font-weight: 600;
-		color: $grey_83;
-	}
+  span {
+    font-weight: 600;
+    color: $grey_83;
+  }
 }
 
 .ctaBtn {
   grid-area: 'ctaBtn';
-	justify-self: flex-end;
+  justify-self: flex-end;
 }

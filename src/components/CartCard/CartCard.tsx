@@ -5,8 +5,8 @@ import { GoodsCounter } from '@/features/GoodsCounter/GoodsCounter'
 import { useAppDispatch, useAppSelector } from '@/store/hook'
 import { updateCart } from '@/store/slices/cartSlice'
 import { formatNumber } from '@/shared/helpers/formatData'
+import { TrashIcon } from '../Icons/TrashIcon'
 
-import trashIcon from '@/assets/icons/trash.svg'
 import s from './CartCard.module.scss'
 
 interface CartCardProps {
@@ -58,10 +58,7 @@ export const CartCard: FC<CartCardProps> = ({
         className={s.deleteBtn}
         style='icon'
         onClick={deleteGood}
-        icon={trashIcon}
-        alt='delete icon'
-        widthIcon={20}
-        heightIcon={17}
+        icon={<TrashIcon width={20} height={17} />}
       />
       <div className={s.good}>
         <div className={s.img}>

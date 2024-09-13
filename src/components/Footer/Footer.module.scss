@@ -14,23 +14,38 @@
 .socialNetworks {
   display: flex;
   gap: 18px;
-  align-items: center;
 }
 
 .menu {
-	display: flex;
-	justify-content: center;
-	gap: 154px;
+  display: flex;
+  justify-content: center;
+  gap: 154px;
 }
 
 .navMenu {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .col {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navLink {
+  cursor: pointer;
+
+  &:hover {
+    color: $orange_ffa;
+    transition: 0.3s;
+  }
+}
+
+.link:hover {
+  path {
+    fill: $orange_ffa;
+    transition: 0.3s;
+  }
 }

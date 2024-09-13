@@ -3,26 +3,29 @@
 .wrap {
   display: flex;
   gap: 15px;
-	align-items: center;
+  align-items: center;
 }
 
 .icon {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .list {
   display: flex;
   gap: 15px;
   font-size: 15px;
-	font-weight: 500;
+  font-weight: 500;
 }
 
-.lang {
-	cursor: pointer;
+.lang:hover {
+  cursor: pointer;
+  color: $orange_ffc;
+  transition: 0.3s;
 }
 
 .active {
-	color: $orange_ffa;
-	font-weight: 700;
+  color: $orange_ffa;
+  font-weight: 700;
+  pointer-events: none;
 }

@@ -1,0 +1,7 @@
+// animations
+@mixin hover {
+  &:hover {
+    color: $orange_ffa;
+    transition: 0.3s;
+  }
+}

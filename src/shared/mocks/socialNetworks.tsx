@@ -1,23 +1,23 @@
 import { SocialNetwork } from '../types/SocialNetwork'
 
-import vk from '@/assets/icons/vk.svg'
-import tg from '@/assets/icons/telegram.svg'
-import whatsapp from '@/assets/icons/whatsapp.svg'
+import { TgIcon } from '@/components/Icons/TgIcon'
+import { VkIcon } from '@/components/Icons/VkIcon'
+import { WhatsappIcon } from '@/components/Icons/WhatsappIcon'
 
 export const socialNetworks: SocialNetwork[] = [
   {
     name: 'VKontakte',
-    logo: vk,
+    icon: <VkIcon />,
     link: 'https://vk.com/',
   },
   {
     name: 'Telegram',
-    logo: tg,
+    icon: <TgIcon />,
     link: 'https://t.me/IVKrylova',
   },
   {
     name: 'Whatsapp',
-    logo: whatsapp,
+    icon: <WhatsappIcon />,
     link: 'https://wa.me/',
   },
 ]

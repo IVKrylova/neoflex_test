@@ -4,8 +4,8 @@ import { Button } from '../Button/Button'
 import { useAppDispatch, useAppSelector } from '@/store/hook'
 import { updateCart } from '@/store/slices/cartSlice'
 import { formatNumber } from '@/shared/helpers/formatData'
+import { StarIcon } from '../Icons/StarIcon'
 
-import starIcon from '@/assets/icons/star.svg'
 import s from './CatalogCard.module.scss'
 
 interface CatalogCardProps {
@@ -73,7 +73,7 @@ export const CatalogCard: FC<CatalogCardProps> = ({
           )}
         </div>
         <div className={s.rate}>
-          <img alt='rate icon' src={starIcon} className={s.iconRate} />
+          <StarIcon width={23} height={23} />
           <span>{rate}</span>
         </div>
         <Button

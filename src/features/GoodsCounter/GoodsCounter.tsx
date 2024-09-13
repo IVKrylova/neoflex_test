@@ -1,9 +1,9 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 
 import { Button } from '@/components/Button/Button'
+import { BtnPlusIcon } from '@/components/Icons/BtnPlusIcon'
+import { BtnMinusIcon } from '@/components/Icons/BtnMinusIcon'
 
-import minusIcon from '@/assets/icons/btnMinus.svg'
-import plusIcon from '@/assets/icons/bthPlus.svg'
 import s from './GoodsCounter.module.scss'
 
 interface GoodsCounterProps {
@@ -35,20 +35,14 @@ export const GoodsCounter: FC<GoodsCounterProps> = ({
         className={s.btn}
         style='icon'
         onClick={decreaseCount}
-        icon={minusIcon}
-        alt='button minus'
-        widthIcon={30}
-        heightIcon={30}
+        icon={<BtnMinusIcon width={30} height={30} />}
       />
       <span className={s.count}>{count}</span>
       <Button
         className={s.btn}
         style='icon'
         onClick={increaseCount}
-        icon={plusIcon}
-        alt='button plus'
-        widthIcon={30}
-        heightIcon={30}
+        icon={<BtnPlusIcon width={30} height={30} />}
       />
     </div>
   )

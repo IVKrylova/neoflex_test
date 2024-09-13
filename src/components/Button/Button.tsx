@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import cn from 'classnames'
 
 import { Counter } from '../Counter/Counter'
@@ -10,11 +10,8 @@ interface ButtonProps {
   onClick: () => void
   text?: string
   className?: string
-  icon?: string
-  widthIcon?: number
-  heightIcon?: number
+  icon?: ReactNode
   type?: 'button' | 'submit'
-  alt?: string
   counter?: number
 }
 
@@ -25,10 +22,7 @@ export const Button: FC<ButtonProps> = ({
   text,
   icon,
   type = 'button',
-  alt,
   counter,
-  widthIcon,
-  heightIcon,
 }) => {
   return (
     <div className={cn(s.wrap, className)}>
@@ -38,12 +32,11 @@ export const Button: FC<ButtonProps> = ({
         className={cn(s.button, {
           [s.fill]: style === 'fill',
           [s.default]: style === 'default',
+          [s.icon]: style === 'icon',
         })}
       >
         {text && <span>{text}</span>}
-        {icon && (
-          <img width={widthIcon} height={heightIcon} alt={alt} src={icon} />
-        )}
+        {icon}
       </button>
       {counter ? <Counter counter={counter} onClick={onClick} /> : null}
     </div>

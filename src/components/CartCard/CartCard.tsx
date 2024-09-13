@@ -4,6 +4,7 @@ import { Button } from '../Button/Button'
 import { GoodsCounter } from '@/features/GoodsCounter/GoodsCounter'
 import { useAppDispatch, useAppSelector } from '@/store/hook'
 import { updateCart } from '@/store/slices/cartSlice'
+import { formatNumber } from '@/shared/helpers/formatData'
 
 import trashIcon from '@/assets/icons/trash.svg'
 import s from './CartCard.module.scss'
@@ -62,12 +63,14 @@ export const CartCard: FC<CartCardProps> = ({
           <h3 className={s.title}>
             <a href='#'>{title}</a>
           </h3>
-          <div className={s.price}>{`${sale ? sale : price} ₽`}</div>
+          <div
+            className={s.price}
+          >{`${formatNumber(sale ? sale : price)} ₽`}</div>
         </div>
       </div>
       <div className={s.sum}>
         <GoodsCounter count={count} setCount={setCount} />
-        <div className={s.commonSum}>{`${sum} ₽`}</div>
+        <div className={s.commonSum}>{`${formatNumber(sum)} ₽`}</div>
       </div>
     </div>
   )

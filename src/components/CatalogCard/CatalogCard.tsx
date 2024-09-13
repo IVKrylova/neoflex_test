@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { Button } from '../Button/Button'
 import { useAppDispatch, useAppSelector } from '@/store/hook'
 import { updateCart } from '@/store/slices/cartSlice'
+import { formatNumber } from '@/shared/helpers/formatData'
 
 import starIcon from '@/assets/icons/star.svg'
 import s from './CatalogCard.module.scss'
@@ -64,8 +65,12 @@ export const CatalogCard: FC<CatalogCardProps> = ({
           <a href='#'>{title}</a>
         </h3>
         <div className={s.price}>
-          <div>{`${sale ? sale : price} ₽`}</div>
-          {sale && <div className={s.pricWithoutSale}>{`${price} ₽`}</div>}
+          <div>{`${formatNumber(sale ? sale : price)} ₽`}</div>
+          {sale && (
+            <div
+              className={s.pricWithoutSale}
+            >{`${formatNumber(price)} ₽`}</div>
+          )}
         </div>
         <div className={s.rate}>
           <img alt='rate icon' src={starIcon} className={s.iconRate} />
